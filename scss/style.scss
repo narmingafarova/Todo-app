@@ -1,0 +1,82 @@
+body {
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(0deg, #0093e9 0%, #80d0c7 100%);
+  .todo {
+    .app {
+      background-color: #fff;
+      margin: 150px auto;
+      width: 40%;
+      padding: 20px;
+      border-radius: 7px;
+      h1 {
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      form {
+        input {
+          &::placeholder {
+            color: #999c9f;
+          }
+        }
+        .btn {
+          opacity: 0.3;
+          pointer-events: none;
+          i {
+            font-size: 25px;
+          }
+          &.active {
+            opacity: 1;
+            pointer-events: auto;
+          }
+        }
+      }
+      .empty-input {
+        color: red;
+        font-size: 10px;
+        margin-top: 5px;
+        user-select: none;
+      }
+      ul {
+        padding: 0;
+        margin-top: 20px;
+        li {
+          list-style: none;
+          height: 40px;
+          line-height: 40px;
+          font-size: 18px;
+          background-color: #f3f1f4;
+          border-radius: 5px;
+          padding: 0 15px;
+          margin-bottom: 10px;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          span {
+            position: absolute;
+            right: -50px;
+            transition: 1s;
+            background-color: red;
+            height: 40px;
+            width: 50px;
+            text-align: center;
+            border-radius: 0 5px 5px 0;
+            i {
+              color: #fff;
+            }
+          }
+          &:hover {
+            span {
+              right: 0px;
+            }
+          }
+        }
+      }
+      .btn {
+        color: #fff;
+        background-color: #8d49e7;
+      }
+    }
+  }
+}
+
