@@ -83,5 +83,6 @@ form.onsubmit = (e) => {
   clrBtn.onclick = () => {
     ul.innerHTML = "";
     footer.className = "footer d-none";
+    input.value = "";
   };
 };
