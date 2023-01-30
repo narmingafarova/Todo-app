@@ -44,7 +44,7 @@ form.onsubmit = (e) => {
     return false;
   } else {
     alert.className = "empty-input d-none";
-    ul.innerHTML += `<li>${li.innerHTML}<span id="todo-delete"><i class="fa-solid fa-trash"></i></span></li>`;
+    ul.innerHTML += `<li>${li.innerHTML}<span id="todo-delete"><i class="fa-solid fa-trash"></i></span><span id="todo-edit"><i class="fa-solid fa-pen-to-square"></i></span></li>`;
     input.value = "";
   }
 
@@ -59,8 +59,26 @@ form.onsubmit = (e) => {
       footerChange();
     };
   }
-
   footerChange();
+
+  const editItem = document.querySelectorAll("#todo-edit");
+  for (let i = 0; i < ul.getElementsByTagName("li").length; i++) {
+    editItem[i].onclick = (e) => {
+      if (e.target.matches(".fa-pen-to-square")) {
+        let changeableInput = e.target.parentElement.parentElement;
+        input.value = changeableInput.innerText;
+        input.focus();
+        input.onsubmit = () => {
+          changeableInput.innerText = input.value;
+        };
+      } else {
+        input.value = e.target.parentElement.innerText;
+        input.focus();
+      }
+      ul.getElementsByTagName("li")[i].remove();
+      footerChange();
+    };
+  }
 
   clrBtn.onclick = () => {
     ul.innerHTML = "";

@@ -62,18 +62,31 @@ body .todo .app ul li {
 }
 body .todo .app ul li span {
   position: absolute;
-  right: -50px;
   transition: 1s;
-  background-color: red;
   height: 40px;
   width: 50px;
   text-align: center;
-  border-radius: 0 5px 5px 0;
 }
-body .todo .app ul li span i {
+body .todo .app ul li #todo-delete {
+  right: -50px;
+  background-color: red;
+  border-radius: 0;
+}
+body .todo .app ul li #todo-delete i {
   color: #fff;
 }
-body .todo .app ul li:hover span {
+body .todo .app ul li #todo-edit {
+  right: -100px;
+  background-color: transparent;
+  border-radius: 0 5px 5px 0;
+}
+body .todo .app ul li #todo-edit i {
+  color: red;
+}
+body .todo .app ul li:hover #todo-delete {
+  right: 50px;
+}
+body .todo .app ul li:hover #todo-edit {
   right: 0px;
 }
 body .todo .app .btn {
