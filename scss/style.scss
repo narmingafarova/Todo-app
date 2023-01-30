@@ -80,3 +80,22 @@ body {
   }
 }
 
+@media screen and (max-width: 992px) {
+  body {
+    .todo {
+      .app {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    .todo {
+      .app {
+        width: 90%;
+      }
+    }
+  }
+}

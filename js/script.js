@@ -1,10 +1,14 @@
 const form = document.querySelector("form");
 const input = document.querySelector("input");
-const alert = document.querySelector(".empty-input");
 const ul = document.querySelector("ul");
-const clrBtn = document.querySelector(".clear");
-const addBtn = document.querySelector(".btn-add");
 const footer = document.querySelector(".footer");
+
+// Buttons
+const addBtn = document.querySelector(".btn-add");
+const clrBtn = document.querySelector(".clear");
+
+// Informative
+const alert = document.querySelector(".empty-input");
 const pending = document.querySelector(".pending");
 
 input.onkeyup = () => {

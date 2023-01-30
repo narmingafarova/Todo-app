@@ -79,4 +79,15 @@ body .todo .app ul li:hover span {
 body .todo .app .btn {
   color: #fff;
   background-color: #8d49e7;
+}
+
+@media screen and (max-width: 992px) {
+  body .todo .app {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 768px) {
+  body .todo .app {
+    width: 90%;
+  }
 }/*# sourceMappingURL=style.css.map */
