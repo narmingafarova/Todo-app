@@ -11,6 +11,7 @@ const clrBtn = document.querySelector(".clear");
 const alert = document.querySelector(".empty-input");
 const pending = document.querySelector(".pending");
 
+// For add btn
 input.onkeyup = () => {
   let inputVal = input.value;
   if (inputVal.trim() != 0) {
@@ -20,6 +21,7 @@ input.onkeyup = () => {
   }
 };
 
+// For visibility of footer and pending tasks
 const footerChange = () => {
   if (ul.getElementsByTagName("li").length == 0) {
     footer.className = "footer d-none";
@@ -39,8 +41,11 @@ form.onsubmit = (e) => {
   e.preventDefault();
   let li = document.createElement("li");
   li.innerHTML = input.value;
+
+  // Checking empty input
   if (!li.innerHTML.trim()) {
     alert.className = "empty-input";
+    input.value = "";
     return false;
   } else {
     alert.className = "empty-input d-none";
@@ -48,6 +53,7 @@ form.onsubmit = (e) => {
     input.value = "";
   }
 
+  // For delete li element
   const deleteItem = document.querySelectorAll("#todo-delete");
   for (let i = 0; i < ul.getElementsByTagName("li").length; i++) {
     deleteItem[i].onclick = (e) => {
@@ -57,20 +63,19 @@ form.onsubmit = (e) => {
         e.target.parentElement.remove();
       }
       footerChange();
+      input.focus();
     };
   }
+
   footerChange();
 
+  // For edit li element
   const editItem = document.querySelectorAll("#todo-edit");
   for (let i = 0; i < ul.getElementsByTagName("li").length; i++) {
     editItem[i].onclick = (e) => {
       if (e.target.matches(".fa-pen-to-square")) {
         let changeableInput = e.target.parentElement.parentElement;
         input.value = changeableInput.innerText;
-        input.focus();
-        input.onsubmit = () => {
-          changeableInput.innerText = input.value;
-        };
       } else {
         input.value = e.target.parentElement.innerText;
         input.focus();
@@ -80,9 +85,11 @@ form.onsubmit = (e) => {
     };
   }
 
+  // For clear ul
   clrBtn.onclick = () => {
     ul.innerHTML = "";
     footer.className = "footer d-none";
     input.value = "";
+    input.focus();
   };
 };
